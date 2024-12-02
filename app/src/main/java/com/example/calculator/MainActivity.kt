@@ -272,16 +272,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.math_operation).append(x)
     }
 
-    /*
-    0
-    0.0
-    0.034 + 0.0
-    0.034 + 0
-
-
-     */
-
-
     fun isDotAllowed(str: String) : Boolean {
         val dotCounter = str.count { it == ',' }
         var newStr = str
