@@ -1,1 +1,1 @@
-This is common calculator :)
+This is common calculator for Android:)
