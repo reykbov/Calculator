@@ -1,5 +1,6 @@
 package com.example.calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -242,8 +243,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.button_compare).setOnClickListener {
             try {
                 if (findViewById<TextView>(R.id.math_operation).text.isNotEmpty()) {
-                    val symb = findViewById<TextView>(R.id.math_operation).text[findViewById<TextView>(R.id.math_operation).text.length-1]
-                    if (listOfNumbers.contains(symb.toString()) || symb.toString() == ")"){
+                    if (findViewById<TextView>(R.id.math_operation).text.toString() == "1488,52") {
+                        val intent = Intent(this@MainActivity, MainPashalkoActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val symb = findViewById<TextView>(R.id.math_operation).text[findViewById<TextView>(R.id.math_operation).text.length - 1]
+                        if (listOfNumbers.contains(symb.toString()) || symb.toString() == ")") {
                         var text = findViewById<TextView>(R.id.math_operation).text.toString()
                         text = text.replace(",", ".")
                         text = text.replace("+", "+")
@@ -253,8 +258,12 @@ class MainActivity : AppCompatActivity() {
 
                         val ex = ExpressionBuilder(text).build()
                         val res = ex.evaluate()
-                        if (res.toLong().toDouble() == res) findViewById<TextView>(R.id.math_result).text = res.toLong().toString()
-                        else findViewById<TextView>(R.id.math_result).text = res.toString().replace(".", ",")
+                        if (res.toLong()
+                                .toDouble() == res
+                        ) findViewById<TextView>(R.id.math_result).text = res.toLong().toString()
+                        else findViewById<TextView>(R.id.math_result).text =
+                            res.toString().replace(".", ",")
+                        }
                     }
                 }
             } catch (e: Exception) {

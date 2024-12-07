@@ -1,3 +1,3 @@
-This is common calculator for Android:)
+This is common calculator for Android, but...........
 
-i just shit in my pants
+If you want to see Pashalko, please enter 1488.52 and click on "=".
